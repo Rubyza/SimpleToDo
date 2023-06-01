@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -70,8 +71,15 @@ public class MainActivity extends AppCompatActivity {
 
                 String position= editPosition.getText().toString();
                 int positionn = Integer.parseInt(position);
-                tasksList.add(positionn-1,task);
-                taskky.notifyDataSetChanged();
+                
+                if(positionn>tasksList.size() && tasksList.size()!=0){
+                    Toast.makeText(MainActivity.this, "Wrong index number", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    tasksList.add(positionn-1,task);
+                    taskky.notifyDataSetChanged();
+                    editTask.setText("");
+                }
             }
         });
 
@@ -82,8 +90,13 @@ public class MainActivity extends AppCompatActivity {
 
                 String position= editPosition.getText().toString();
                 int positionn = Integer.parseInt(position);
-                tasksList.remove(positionn);
-                taskky.notifyDataSetChanged();
+                if((positionn)>tasksList.size()){
+                    Toast.makeText(MainActivity.this, "Wrong index number", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    tasksList.remove(positionn-1);
+                    taskky.notifyDataSetChanged();
+                }
             }
         });
 
