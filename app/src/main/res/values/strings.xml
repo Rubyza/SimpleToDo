@@ -3,4 +3,8 @@
     <string name="add">ADD</string>
     <string name="clear">CLEAR</string>
     <string name="delete">DELETE</string>
+    <string-array name="spinnerItems">
+        <item>Add</item>
+        <item>Delete</item>
+    </string-array>
 </resources>
